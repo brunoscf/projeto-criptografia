@@ -187,7 +187,7 @@ def generate_L_R(L0, R0, K):
 
     return L, R
 
-def encrypt(text, key, mode):
+def DES(text, key, mode):
     M = hex2bin(text)
     L = M[:8]
     R = M[8:]
@@ -231,5 +231,5 @@ key = "AABB09182736CCDD"
 
 ct = "c0b7a8d05f3a829c"
 
-print(encrypt(text, key, "encrypt"))
-print(encrypt(ct, key, "decrypt"))
+print(DES(text, key, "encrypt"))
+print(DES(ct, key, "decrypt"))
