@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criptografia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body style=" background-image: linear-gradient(to bottom, #dda16b, #df9e79, #de9d87, #d99d94, #d19f9e);">
+  
+  <form method="POST" action="/">
+    <div class="mainDiv">
+        <h2 style="text-align: center;">Criptografia</h2>
+        <h4 style="text-align: center; margin-bottom: 10px; ">Tipo de entrada:</h4>
+
+        <div style="display: flex; justify-content: center;">
+          <div>
+            <input type="radio" id="contactChoice1" name="tipoEntrada" value="text" checked>
+            <label for="contactChoice1">Texto:</label>
+            <input type="text" id="nome" name="nome" />
+          </div>
+          <div> 
+            <input type="radio" id="contactChoice2" name="tipoEntrada" value="file">
+            <label  for="contactChoice2">Arquivo</label>
+            <input type="file" value="Escolher Arquivo" name="caminhoArquivo" accept=".txt">
+          </div>
+        </div>
+          
+        <div class="criptoSelectionDiv">
+          <div>
+            <div>
+              <input type="radio" id="contactChoice1" name="criptografiaSelecionada" value="des" checked>
+              <label for="contactChoice1">DES</label>
+            </div>
+
+            <div>
+                <input type="radio" id="contactChoice1" name="criptografiaSelecionada" value="3des">
+              <label for="contactChoice1">3DES</label>
+            </div>
+
+            <div>
+                <input type="radio" id="contactChoice1" name="criptografiaSelecionada" value="blowfish">
+                <label for="contactChoice1">Blowfish</label>
+            </div>
+
+            <div>
+                <input type="radio" id="contactChoice1" name="criptografiaSelecionada" value="aes">
+                <label for="contactChoice1">AES</label>
+            </div>
+          </div>
+          
+          <div style="margin-top: 20px;">
+            <div>
+              <label>Chave:</label>
+              <input type="text" id="chave" name="chave" required/>
+            </div>
+              
+            <div style=" display: flex; justify-content: space-around; margin-top: 5px;">
+              <div>
+              <input type="radio" id="contactChoice1"  name="operacaoSelecionada" value="encrypt" checked>
+              <label for="contactChoice1">Cifrar</label>
+            </div>
+            <div>
+              <input type="radio" id="contactChoice2"  name="operacaoSelecionada" value="decrypt">
+              <label for="contactChoice2">Decifrar</label>
+            </div>
+            </div>
+          </div>
+
+        </div>
+          <div style="text-align: center; margin-top: 10px;">
+            <input class="botaoExecutar" type="submit" value="Executar">
+          </div>
+          
+      </div>
+
+    </form>
+    
+    
+
+</body>
+</html>
