@@ -304,12 +304,28 @@ def encrypt(plainText):
     return L+R;
 
         
+def decrypt(plainText):
+    for i in range (17,1,-1):
+        plainText = iteration(i, plainText)
+
+    print( plainText)
+
+    R = plainText[0:8]
+    L = plainText[8:16]
+    R = xor(hex2bin(R), P[1])
+    L = xor(hex2bin(L), P[0])
+    R = bin2hex(R)
+    L = bin2hex(L)
+    return L+R;
+
 text = "123456ABCD132536"
 key = "aabb09182736ccdd"
 print(key)
 key = hex2bin(key)
 generate_key(key)
 A = encrypt("123456ABCD132536")
-print(A)
 
+N = decrypt(A)
+print("A:  ",A)
+print("N:  ",N)
 
