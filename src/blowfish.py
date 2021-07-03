@@ -246,7 +246,6 @@ def generate_key(key):
         N = hex2bin(P[i])
         P[i] = xor(N,key[j:j+32])
         a = bin2hex(P[i])
-        print(a)
         j = (j + 32) % len(key)
         
 def addBin(A,B):
@@ -283,7 +282,6 @@ def iteration(time,plainText):
     
     R = xor(hex2bin(fOut), R)
     
-    print("rodada ", time, " : ", bin2hex(R), bin2hex(L))
     R = bin2hex(R)
     L = bin2hex(L)
     
@@ -292,8 +290,6 @@ def iteration(time,plainText):
 def encrypt(plainText):
     for i in range (0,16):
         plainText = iteration(i, plainText)
-
-    print( plainText)
 
     R = plainText[0:8]
     L = plainText[8:16]
@@ -308,8 +304,6 @@ def decrypt(plainText):
     for i in range (17,1,-1):
         plainText = iteration(i, plainText)
 
-    print( plainText)
-
     R = plainText[0:8]
     L = plainText[8:16]
     R = xor(hex2bin(R), P[1])
@@ -318,14 +312,31 @@ def decrypt(plainText):
     L = bin2hex(L)
     return L+R;
 
-text = "123456ABCD132536"
-key = "aabb09182736ccdd"
-print(key)
-key = hex2bin(key)
-generate_key(key)
-A = encrypt("123456ABCD132536")
 
-N = decrypt(A)
-print("A:  ",A)
-print("N:  ",N)
+def apply(text, key, mode):
+    key = key[0]
+    key = hex2bin(key)
+    generate_key(key)
+
+    if mode == "encrypt":
+        result =  encrypt(text)
+    
+    elif mode == "decrypt":
+        result =  decrypt(text)
+    
+    else:
+        raise Exception("Erro no mode!")
+
+    return result
+
+# text = "123456ABCD132536"
+# key = "aabb09182736ccdd"
+# print(key)
+# key = hex2bin(key)
+# generate_key(key)
+# A = encrypt("123456ABCD132536")
+
+# N = decrypt(A)
+# print("A:  ",A)
+# print("N:  ",N)
 

@@ -45,8 +45,8 @@
             </div>
 
             <div>
-                <input type="radio" id="contactChoice1" name="criptografiaSelecionada" value="aes">
-                <label for="contactChoice1">AES</label>
+                <input type="radio" id="contactChoice1" name="criptografiaSelecionada" value="idea">
+                <label for="contactChoice1">IDEA</label>
             </div>
           </div>
           
@@ -70,7 +70,7 @@
 
         </div>
           <div style="text-align: center; margin-top: 10px;">
-            <input class="botaoExecutar" type="submit" value="Executar">
+          <input class="botaoExecutar" value="Executar" type="submit" onclick="notify()">
           </div>
           
       </div>
@@ -80,4 +80,10 @@
     
 
 </body>
+
+<script>
+  function notify(){
+    alert("Salvo em cifrado.txt!");
+  }
+</script>
 </html>

@@ -1,9 +1,15 @@
 from . import des
+from . import tripleDes
+from . import blowfish
+#from . import idea
 
 import os
 
 ALGORITHMS = {
-    "des" : des
+    "des" : des,
+    "blowfish" : blowfish,
+    "3des" : tripleDes,
+    #"idea" : idea
 }
 
 def _get_message_from_file(filename):
