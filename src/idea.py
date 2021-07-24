@@ -179,15 +179,11 @@ def decrypt_IDEA(plain_text, key):
 
 def encrypt(plain_text, chave):
     texto_cifrado = encrypt_IDEA(plain_text, chave)
-    print("Texto claro: " + plain_text)
-    print("Chave usada: " + chave)
-    print("Criptografado: " + texto_cifrado)
     return texto_cifrado
 
 
 def decrypt(cifra, chave):
     texto_decifrado = decrypt_IDEA(cifra, chave)
-    print("Texto Decriptografado: " + texto_decifrado)
     return texto_decifrado
 
 
@@ -198,10 +194,10 @@ def apply(text, key, mode):
     generate_key(key)
 
     if mode == "encrypt":
-        result =  encrypt(text)
+        result =  encrypt(text, key)
     
     elif mode == "decrypt":
-        result =  decrypt(text)
+        result =  decrypt(text, key)
     
     else:
         raise Exception("Erro no mode!")
